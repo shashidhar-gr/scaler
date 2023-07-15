@@ -1,25 +1,31 @@
 const maxSumOne = function(A) {
-    let arr = [];
-    for(const c of A) {
-        if(c == "1")
-            arr.push(-1);
-        else    
-            arr.push(1);
+    let isAllones = true;
+    let nums = A.split("");
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] == 1)
+            nums[i] = -1;
+        else {
+            nums[i] = 1;
+            isAllones = false;
+        }
     }
 
-    let R = 0, cursum = 0;
-    for(let L = 0; L < arr.length; L++) {
-        if(cursum <= 0) {
+    if(isAllones)
+        return [];
+
+    let maxL = 0, maxR = 0, L = 0, cursum = 0, max = Number.NEGATIVE_INFINITY;
+    for(let R = 0; R < nums.length; R++) {
+        if(cursum < 0) {
             L = R;
-            cursum = 0;
         }
-        cursum += arr[R];
-        if(cursum > maxsum) {
-            maxsum = cursum;
+        cursum = Math.max(cursum + nums[R], nums[R]);
+        if(cursum > max) {
+            max = cursum;
             maxL = L;
             maxR = R;
-        }
+        } 
     }
+    return [maxL + 1, maxR + 1];
 }
 
 const A = "010";
