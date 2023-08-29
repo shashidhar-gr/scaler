@@ -2,8 +2,8 @@ class Queue {
     #elements;
     #head;
     #tail;
-    constructor(size) {
-        this.#elements = new Array(size).fill(0)
+    constructor(capacity) {
+        this.#elements = new Array(capacity).fill(0)
         this.#head = 0;
         this.#tail = 0;
     }

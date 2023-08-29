@@ -22,19 +22,13 @@ class Stack {
     size() {
         return this.top > -1 ? this.top + 1 : 0;
     }
-}
 
-const stack = new Stack(5);
-stack.push(10);
-stack.push(20);
-stack.push(30);
-stack.push(40);
-stack.push(50);
-console.log(stack.push(60));
-console.log(stack.size());
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
+    isFull() {
+        return this.top == this.elements.length - 1;
+    }
+
+    isEmpty() {
+        return this.top == -1;
+    }
+}
+module.exports = Stack;
