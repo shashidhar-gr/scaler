@@ -53,7 +53,7 @@ const minIndexInRight = function(A) {
     return res;
 }
 
-const A = [2];
+const A = [5, 1, 4, 4, 5];
 const res = solve(A);
 console.log(res);
 //[1, 5, 8, 3, 7, 11]
