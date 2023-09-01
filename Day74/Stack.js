@@ -19,6 +19,10 @@ class Stack {
         return data;
     }
 
+    top() {
+        return this.elements[this.top];
+    }
+
     size() {
         return this.top > -1 ? this.top + 1 : 0;
     }

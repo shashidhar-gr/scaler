@@ -33,6 +33,14 @@ class Queue {
             return this.#outStack.pop()
         }
     }
+    peek() {
+        if(this.#outStack.isEmpty()) {
+            while(!this.#inStack.isEmpty()) {
+                this.#outStack.push(this.#inStack.pop())
+            }
+        }
+        return this.#outStack.top()
+    }
     isFull() {
         return this.#inStack.isFull() && this.#outStack.isFull()
     }
