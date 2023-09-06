@@ -9,8 +9,8 @@ const solve = function(A) {
     }
     inorder(A);
     console.log(res)
-    for(let i = 0; i < res.length - 1; i++) {
-        if(res[i] > res[i+1])
+    for(let i = 1; i < res.length; i++) {
+        if(res[i] < res[i-1])
             return false;
     }
 
@@ -23,12 +23,12 @@ const TreeNode = function(data) {
     this.right = null;
 }
 
-const root = new TreeNode(3);
-root.left = new TreeNode(2);
-root.right = new TreeNode(4);
+const root = new TreeNode(5);
+root.left = new TreeNode(3);
+root.right = new TreeNode(7);
 let tmp = root.right;
-tmp.left = new TreeNode(1);
-tmp.right = new TreeNode(2);
+tmp.left = new TreeNode(4);
+tmp.right = new TreeNode(8);
 
 const res = solve(root);
 console.log(res);
